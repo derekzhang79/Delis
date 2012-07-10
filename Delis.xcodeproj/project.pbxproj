@@ -1,0 +1,459 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7515BE0B15AC7BD800F448FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7515BE0A15AC7BD800F448FC /* UIKit.framework */; };
+		7515BE0D15AC7BD800F448FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7515BE0C15AC7BD800F448FC /* Foundation.framework */; };
+		7515BE0F15AC7BD800F448FC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7515BE0E15AC7BD800F448FC /* CoreGraphics.framework */; };
+		7515BE1515AC7BD800F448FC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7515BE1315AC7BD800F448FC /* InfoPlist.strings */; };
+		7515BE1715AC7BD800F448FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7515BE1615AC7BD800F448FC /* main.m */; };
+		7515BE1B15AC7BD800F448FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7515BE1A15AC7BD800F448FC /* AppDelegate.m */; };
+		7515BE1E15AC7BD800F448FC /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7515BE1C15AC7BD800F448FC /* MainStoryboard_iPhone.storyboard */; };
+		7515BE2115AC7BD800F448FC /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7515BE1F15AC7BD800F448FC /* MainStoryboard_iPad.storyboard */; };
+		7515BE2415AC7BD800F448FC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7515BE2315AC7BD800F448FC /* ViewController.m */; };
+		7515BE2C15AC7BD800F448FC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7515BE2B15AC7BD800F448FC /* SenTestingKit.framework */; };
+		7515BE2D15AC7BD800F448FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7515BE0A15AC7BD800F448FC /* UIKit.framework */; };
+		7515BE2E15AC7BD800F448FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7515BE0C15AC7BD800F448FC /* Foundation.framework */; };
+		7515BE3615AC7BD800F448FC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7515BE3415AC7BD800F448FC /* InfoPlist.strings */; };
+		7515BE3915AC7BD800F448FC /* DelisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7515BE3815AC7BD800F448FC /* DelisTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7515BE2F15AC7BD800F448FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7515BDFD15AC7BD800F448FC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7515BE0515AC7BD800F448FC;
+			remoteInfo = Delis;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7515BE0615AC7BD800F448FC /* Delis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Delis.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7515BE0A15AC7BD800F448FC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7515BE0C15AC7BD800F448FC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7515BE0E15AC7BD800F448FC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7515BE1215AC7BD800F448FC /* Delis-Info.plist */ = {isa = PBXFileReference; path = "Delis-Info.plist"; sourceTree = "<group>"; };
+		7515BE1415AC7BD800F448FC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7515BE1615AC7BD800F448FC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7515BE1815AC7BD800F448FC /* Delis-Prefix.pch */ = {isa = PBXFileReference; path = "Delis-Prefix.pch"; sourceTree = "<group>"; };
+		7515BE1915AC7BD800F448FC /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		7515BE1A15AC7BD800F448FC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7515BE1D15AC7BD800F448FC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		7515BE2015AC7BD800F448FC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		7515BE2215AC7BD800F448FC /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		7515BE2315AC7BD800F448FC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7515BE2A15AC7BD800F448FC /* DelisTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DelisTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7515BE2B15AC7BD800F448FC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		7515BE3315AC7BD800F448FC /* DelisTests-Info.plist */ = {isa = PBXFileReference; path = "DelisTests-Info.plist"; sourceTree = "<group>"; };
+		7515BE3515AC7BD800F448FC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7515BE3715AC7BD800F448FC /* DelisTests.h */ = {isa = PBXFileReference; path = DelisTests.h; sourceTree = "<group>"; };
+		7515BE3815AC7BD800F448FC /* DelisTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DelisTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7515BE0315AC7BD800F448FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7515BE0B15AC7BD800F448FC /* UIKit.framework in Frameworks */,
+				7515BE0D15AC7BD800F448FC /* Foundation.framework in Frameworks */,
+				7515BE0F15AC7BD800F448FC /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7515BE2615AC7BD800F448FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7515BE2C15AC7BD800F448FC /* SenTestingKit.framework in Frameworks */,
+				7515BE2D15AC7BD800F448FC /* UIKit.framework in Frameworks */,
+				7515BE2E15AC7BD800F448FC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7515BDFB15AC7BD800F448FC = {
+			isa = PBXGroup;
+			children = (
+				7515BE1015AC7BD800F448FC /* Delis */,
+				7515BE3115AC7BD800F448FC /* DelisTests */,
+				7515BE0915AC7BD800F448FC /* Frameworks */,
+				7515BE0715AC7BD800F448FC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7515BE0715AC7BD800F448FC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7515BE0615AC7BD800F448FC /* Delis.app */,
+				7515BE2A15AC7BD800F448FC /* DelisTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7515BE0915AC7BD800F448FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7515BE0A15AC7BD800F448FC /* UIKit.framework */,
+				7515BE0C15AC7BD800F448FC /* Foundation.framework */,
+				7515BE0E15AC7BD800F448FC /* CoreGraphics.framework */,
+				7515BE2B15AC7BD800F448FC /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7515BE1015AC7BD800F448FC /* Delis */ = {
+			isa = PBXGroup;
+			children = (
+				7515BE1915AC7BD800F448FC /* AppDelegate.h */,
+				7515BE1A15AC7BD800F448FC /* AppDelegate.m */,
+				7515BE1C15AC7BD800F448FC /* MainStoryboard_iPhone.storyboard */,
+				7515BE1F15AC7BD800F448FC /* MainStoryboard_iPad.storyboard */,
+				7515BE2215AC7BD800F448FC /* ViewController.h */,
+				7515BE2315AC7BD800F448FC /* ViewController.m */,
+				7515BE1115AC7BD800F448FC /* Supporting Files */,
+			);
+			path = Delis;
+			sourceTree = "<group>";
+		};
+		7515BE1115AC7BD800F448FC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7515BE1215AC7BD800F448FC /* Delis-Info.plist */,
+				7515BE1315AC7BD800F448FC /* InfoPlist.strings */,
+				7515BE1615AC7BD800F448FC /* main.m */,
+				7515BE1815AC7BD800F448FC /* Delis-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7515BE3115AC7BD800F448FC /* DelisTests */ = {
+			isa = PBXGroup;
+			children = (
+				7515BE3715AC7BD800F448FC /* DelisTests.h */,
+				7515BE3815AC7BD800F448FC /* DelisTests.m */,
+				7515BE3215AC7BD800F448FC /* Supporting Files */,
+			);
+			path = DelisTests;
+			sourceTree = "<group>";
+		};
+		7515BE3215AC7BD800F448FC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7515BE3315AC7BD800F448FC /* DelisTests-Info.plist */,
+				7515BE3415AC7BD800F448FC /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7515BE0515AC7BD800F448FC /* Delis */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7515BE3C15AC7BD800F448FC /* Build configuration list for PBXNativeTarget "Delis" */;
+			buildPhases = (
+				7515BE0215AC7BD800F448FC /* Sources */,
+				7515BE0315AC7BD800F448FC /* Frameworks */,
+				7515BE0415AC7BD800F448FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Delis;
+			productName = Delis;
+			productReference = 7515BE0615AC7BD800F448FC /* Delis.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7515BE2915AC7BD800F448FC /* DelisTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7515BE3F15AC7BD800F448FC /* Build configuration list for PBXNativeTarget "DelisTests" */;
+			buildPhases = (
+				7515BE2515AC7BD800F448FC /* Sources */,
+				7515BE2615AC7BD800F448FC /* Frameworks */,
+				7515BE2715AC7BD800F448FC /* Resources */,
+				7515BE2815AC7BD800F448FC /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7515BE3015AC7BD800F448FC /* PBXTargetDependency */,
+			);
+			name = DelisTests;
+			productName = DelisTests;
+			productReference = 7515BE2A15AC7BD800F448FC /* DelisTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7515BDFD15AC7BD800F448FC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = LBS;
+			};
+			buildConfigurationList = 7515BE0015AC7BD800F448FC /* Build configuration list for PBXProject "Delis" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7515BDFB15AC7BD800F448FC;
+			productRefGroup = 7515BE0715AC7BD800F448FC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7515BE0515AC7BD800F448FC /* Delis */,
+				7515BE2915AC7BD800F448FC /* DelisTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7515BE0415AC7BD800F448FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7515BE1515AC7BD800F448FC /* InfoPlist.strings in Resources */,
+				7515BE1E15AC7BD800F448FC /* MainStoryboard_iPhone.storyboard in Resources */,
+				7515BE2115AC7BD800F448FC /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7515BE2715AC7BD800F448FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7515BE3615AC7BD800F448FC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7515BE2815AC7BD800F448FC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7515BE0215AC7BD800F448FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7515BE1715AC7BD800F448FC /* main.m in Sources */,
+				7515BE1B15AC7BD800F448FC /* AppDelegate.m in Sources */,
+				7515BE2415AC7BD800F448FC /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7515BE2515AC7BD800F448FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7515BE3915AC7BD800F448FC /* DelisTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7515BE3015AC7BD800F448FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7515BE0515AC7BD800F448FC /* Delis */;
+			targetProxy = 7515BE2F15AC7BD800F448FC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7515BE1315AC7BD800F448FC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7515BE1415AC7BD800F448FC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7515BE1C15AC7BD800F448FC /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7515BE1D15AC7BD800F448FC /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		7515BE1F15AC7BD800F448FC /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7515BE2015AC7BD800F448FC /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		7515BE3415AC7BD800F448FC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7515BE3515AC7BD800F448FC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7515BE3A15AC7BD800F448FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7515BE3B15AC7BD800F448FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7515BE3D15AC7BD800F448FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Delis/Delis-Prefix.pch";
+				INFOPLIST_FILE = "Delis/Delis-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		7515BE3E15AC7BD800F448FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Delis/Delis-Prefix.pch";
+				INFOPLIST_FILE = "Delis/Delis-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		7515BE4015AC7BD800F448FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Delis.app/Delis";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Delis/Delis-Prefix.pch";
+				INFOPLIST_FILE = "DelisTests/DelisTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		7515BE4115AC7BD800F448FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Delis.app/Delis";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Delis/Delis-Prefix.pch";
+				INFOPLIST_FILE = "DelisTests/DelisTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7515BE0015AC7BD800F448FC /* Build configuration list for PBXProject "Delis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7515BE3A15AC7BD800F448FC /* Debug */,
+				7515BE3B15AC7BD800F448FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7515BE3C15AC7BD800F448FC /* Build configuration list for PBXNativeTarget "Delis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7515BE3D15AC7BD800F448FC /* Debug */,
+				7515BE3E15AC7BD800F448FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7515BE3F15AC7BD800F448FC /* Build configuration list for PBXNativeTarget "DelisTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7515BE4015AC7BD800F448FC /* Debug */,
+				7515BE4115AC7BD800F448FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7515BDFD15AC7BD800F448FC /* Project object */;
+}
