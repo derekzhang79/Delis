@@ -26,6 +26,7 @@
 		756E56A715ADD11E0009D04C /* sample_food.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 756E56A615ADD11E0009D04C /* sample_food.jpg */; };
 		756E56AA15ADD2EE0009D04C /* sample_people.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 756E56A915ADD2EE0009D04C /* sample_people.jpg */; };
 		756E56AD15ADD7770009D04C /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 756E56AC15ADD7770009D04C /* CameraViewController.m */; };
+		75B0307515AF024400BABE2D /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B0307415AF024400BABE2D /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,8 @@
 		756E56A915ADD2EE0009D04C /* sample_people.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample_people.jpg; sourceTree = "<group>"; };
 		756E56AB15ADD7770009D04C /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		756E56AC15ADD7770009D04C /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		75B0307315AF024400BABE2D /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		75B0307415AF024400BABE2D /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +132,8 @@
 		7515BE1015AC7BD800F448FC /* Delis */ = {
 			isa = PBXGroup;
 			children = (
+				75B0307315AF024400BABE2D /* ProfileViewController.h */,
+				75B0307415AF024400BABE2D /* ProfileViewController.m */,
 				756E56AB15ADD7770009D04C /* CameraViewController.h */,
 				756E56AC15ADD7770009D04C /* CameraViewController.m */,
 				7515BE4B15ADB96900F448FC /* FeedViewController.h */,
@@ -289,6 +294,7 @@
 				7515BE2415AC7BD800F448FC /* ViewController.m in Sources */,
 				7515BE4D15ADB96900F448FC /* FeedViewController.m in Sources */,
 				756E56AD15ADD7770009D04C /* CameraViewController.m in Sources */,
+				75B0307515AF024400BABE2D /* ProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +405,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Delis/Delis-Prefix.pch";
 				INFOPLIST_FILE = "Delis/Delis-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/facebook-ios-sdk\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -410,6 +420,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Delis/Delis-Prefix.pch";
 				INFOPLIST_FILE = "Delis/Delis-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/facebook-ios-sdk\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
