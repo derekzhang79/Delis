@@ -27,6 +27,12 @@
 		756E56AA15ADD2EE0009D04C /* sample_people.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 756E56A915ADD2EE0009D04C /* sample_people.jpg */; };
 		756E56AD15ADD7770009D04C /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 756E56AC15ADD7770009D04C /* CameraViewController.m */; };
 		75B0307515AF024400BABE2D /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B0307415AF024400BABE2D /* ProfileViewController.m */; };
+		75F683C415B6F1C4000DD37C /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F683BF15B6F1C4000DD37C /* location.png */; };
+		75F683C515B6F1C4000DD37C /* coffee.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F683C015B6F1C4000DD37C /* coffee.png */; };
+		75F683C615B6F1C4000DD37C /* restorant.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F683C115B6F1C4000DD37C /* restorant.png */; };
+		75F683C715B6F1C4000DD37C /* bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F683C215B6F1C4000DD37C /* bar.png */; };
+		75F683C815B6F1C4000DD37C /* bread.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F683C315B6F1C4000DD37C /* bread.png */; };
+		75FD885315B6F5D70034509B /* add_friends.png in Resources */ = {isa = PBXBuildFile; fileRef = 75FD885215B6F5D70034509B /* add_friends.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +75,12 @@
 		756E56AC15ADD7770009D04C /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		75B0307315AF024400BABE2D /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		75B0307415AF024400BABE2D /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		75F683BF15B6F1C4000DD37C /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
+		75F683C015B6F1C4000DD37C /* coffee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coffee.png; sourceTree = "<group>"; };
+		75F683C115B6F1C4000DD37C /* restorant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restorant.png; sourceTree = "<group>"; };
+		75F683C215B6F1C4000DD37C /* bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar.png; sourceTree = "<group>"; };
+		75F683C315B6F1C4000DD37C /* bread.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bread.png; sourceTree = "<group>"; };
+		75FD885215B6F5D70034509B /* add_friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_friends.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +113,12 @@
 			children = (
 				756E56A915ADD2EE0009D04C /* sample_people.jpg */,
 				756E56A615ADD11E0009D04C /* sample_food.jpg */,
+				75FD885215B6F5D70034509B /* add_friends.png */,
+				75F683BF15B6F1C4000DD37C /* location.png */,
+				75F683C015B6F1C4000DD37C /* coffee.png */,
+				75F683C115B6F1C4000DD37C /* restorant.png */,
+				75F683C215B6F1C4000DD37C /* bar.png */,
+				75F683C315B6F1C4000DD37C /* bread.png */,
 				7515BE4615AC7D5300F448FC /* MapKit.framework */,
 				7515BE1015AC7BD800F448FC /* Delis */,
 				7515BE3115AC7BD800F448FC /* DelisTests */,
@@ -255,6 +273,12 @@
 				7515BE2115AC7BD800F448FC /* MainStoryboard_iPad.storyboard in Resources */,
 				756E56A715ADD11E0009D04C /* sample_food.jpg in Resources */,
 				756E56AA15ADD2EE0009D04C /* sample_people.jpg in Resources */,
+				75F683C415B6F1C4000DD37C /* location.png in Resources */,
+				75F683C515B6F1C4000DD37C /* coffee.png in Resources */,
+				75F683C615B6F1C4000DD37C /* restorant.png in Resources */,
+				75F683C715B6F1C4000DD37C /* bar.png in Resources */,
+				75F683C815B6F1C4000DD37C /* bread.png in Resources */,
+				75FD885315B6F5D70034509B /* add_friends.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

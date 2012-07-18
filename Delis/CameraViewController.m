@@ -10,16 +10,21 @@
 
 @implementation CameraViewController
 
--(void)viewDidLoad {
-    [super viewDidLoad];
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self performSegueWithIdentifier:@"camera_to_feed" sender:self];
+    [self startCamera];
+}
+
+-(void)startCamera {
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         UIImagePickerController* picker = [[UIImagePickerController alloc] init];
         [picker setAllowsEditing:YES];
         [picker setSourceType:UIImagePickerControllerSourceTypeCamera];
-        [self presentModalViewController:picker animated:YES];
-        
+        [self presentModalViewController:picker animated:YES];        
     }
-
 }
+
 
 @end

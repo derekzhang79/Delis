@@ -18,6 +18,8 @@
     UITableViewCell* cell;
     if (indexPath.row == 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"MapCell"];
+    } else if (indexPath.row == 1) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"MenuCell"];
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"PictureCell"];
     }
@@ -31,9 +33,11 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        return 110;
+        return 150;
+    } else if (indexPath.row == 1) {
+        return 40;
     } else {
-        return 300;
+        return 350;
     }
 }
 
