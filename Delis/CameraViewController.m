@@ -13,7 +13,6 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self performSegueWithIdentifier:@"camera_to_feed" sender:self];
     [self startCamera];
 }
 

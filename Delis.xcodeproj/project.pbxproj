@@ -23,6 +23,8 @@
 		7515BE3915AC7BD800F448FC /* DelisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7515BE3815AC7BD800F448FC /* DelisTests.m */; };
 		7515BE4715AC7D5300F448FC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7515BE4615AC7D5300F448FC /* MapKit.framework */; };
 		7515BE4D15ADB96900F448FC /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7515BE4C15ADB96900F448FC /* FeedViewController.m */; };
+		751BC59715BA76FA0080BBD6 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 751BC59615BA76FA0080BBD6 /* ContentViewController.m */; };
+		751BC59B15BE75C50080BBD6 /* PictureCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 751BC59A15BE75C50080BBD6 /* PictureCellView.m */; };
 		756E56A715ADD11E0009D04C /* sample_food.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 756E56A615ADD11E0009D04C /* sample_food.jpg */; };
 		756E56AA15ADD2EE0009D04C /* sample_people.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 756E56A915ADD2EE0009D04C /* sample_people.jpg */; };
 		756E56AD15ADD7770009D04C /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 756E56AC15ADD7770009D04C /* CameraViewController.m */; };
@@ -69,6 +71,10 @@
 		7515BE4615AC7D5300F448FC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7515BE4B15ADB96900F448FC /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
 		7515BE4C15ADB96900F448FC /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
+		751BC59515BA76FA0080BBD6 /* ContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentViewController.h; sourceTree = "<group>"; };
+		751BC59615BA76FA0080BBD6 /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
+		751BC59915BE75C50080BBD6 /* PictureCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureCellView.h; sourceTree = "<group>"; };
+		751BC59A15BE75C50080BBD6 /* PictureCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureCellView.m; sourceTree = "<group>"; };
 		756E56A615ADD11E0009D04C /* sample_food.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample_food.jpg; sourceTree = "<group>"; };
 		756E56A915ADD2EE0009D04C /* sample_people.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample_people.jpg; sourceTree = "<group>"; };
 		756E56AB15ADD7770009D04C /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
@@ -150,6 +156,10 @@
 		7515BE1015AC7BD800F448FC /* Delis */ = {
 			isa = PBXGroup;
 			children = (
+				751BC59915BE75C50080BBD6 /* PictureCellView.h */,
+				751BC59A15BE75C50080BBD6 /* PictureCellView.m */,
+				751BC59515BA76FA0080BBD6 /* ContentViewController.h */,
+				751BC59615BA76FA0080BBD6 /* ContentViewController.m */,
 				75B0307315AF024400BABE2D /* ProfileViewController.h */,
 				75B0307415AF024400BABE2D /* ProfileViewController.m */,
 				756E56AB15ADD7770009D04C /* CameraViewController.h */,
@@ -319,6 +329,8 @@
 				7515BE4D15ADB96900F448FC /* FeedViewController.m in Sources */,
 				756E56AD15ADD7770009D04C /* CameraViewController.m in Sources */,
 				75B0307515AF024400BABE2D /* ProfileViewController.m in Sources */,
+				751BC59715BA76FA0080BBD6 /* ContentViewController.m in Sources */,
+				751BC59B15BE75C50080BBD6 /* PictureCellView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
