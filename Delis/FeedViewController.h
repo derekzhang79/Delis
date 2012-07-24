@@ -7,17 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PictureCellView.h"
 
 @interface FeedViewController : UITableViewController {
     IBOutlet UITableView* feed_tableview;
     UITableViewCell* map_cell;
     UITableViewCell* menu_cell;
+    NSMutableArray* picture_array;
 }
 
 @property (nonatomic, strong) UITableView* feed_tableview;
 @property (nonatomic, strong) UITableViewCell* map_cell;
 @property (nonatomic, strong) UITableViewCell* menu_cell;
+@property (nonatomic, strong) NSMutableArray* picture_array;
 
--(void)setMenuWithTitle:(NSString*)name width:(CGFloat)width;
+-(void)addMenuWithTitle:(NSString*)name width:(CGFloat)width;
 
 @end

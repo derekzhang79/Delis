@@ -36,5 +36,4 @@
 @property (nonatomic, strong) UILabel* location_description;
 @property (nonatomic, strong) UIImageView* star;
 
-
 @end
