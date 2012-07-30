@@ -7,15 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 #import "PictureCellView.h"
 
-@interface FeedViewController : UITableViewController {
+@interface FeedViewController : UITableViewController <MKMapViewDelegate> {
     IBOutlet UITableView* feed_tableview;
     UITableViewCell* map_cell;
+    MKMapView* map_view;
     UITableViewCell* menu_cell;
     NSMutableArray* picture_array;
 }
 
+@property (nonatomic, strong) MKMapView* map_view;
 @property (nonatomic, strong) UITableView* feed_tableview;
 @property (nonatomic, strong) UITableViewCell* map_cell;
 @property (nonatomic, strong) UITableViewCell* menu_cell;

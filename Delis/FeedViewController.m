@@ -14,10 +14,16 @@
 @synthesize map_cell;
 @synthesize menu_cell;
 @synthesize picture_array;
+@synthesize map_view;
 
 -(void)viewDidLoad {
     [super viewDidLoad];
     map_cell = [feed_tableview dequeueReusableCellWithIdentifier:@"MapCell"];
+    UIView* sub_view = [map_cell.subviews objectAtIndex:0];
+    map_view = [sub_view.subviews objectAtIndex:0];
+    MKCoordinateRegion location = { { 37.503551 , 127.02531}, {0.0004, 0.0004} };
+    [map_view setRegion:location animated:YES];
+    
     menu_cell = [feed_tableview dequeueReusableCellWithIdentifier:@"MenuCell"];
     picture_array = [NSMutableArray arrayWithCapacity:10];
     PictureCellView* picture1 = [feed_tableview dequeueReusableCellWithIdentifier:@"PictureCell"];
