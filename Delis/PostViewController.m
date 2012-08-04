@@ -9,23 +9,13 @@
 #import "PostViewController.h"
 
 @implementation PostViewController
-@synthesize tableView;
 
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell* cell;
-    if (indexPath.row == 0) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"searchCell"];
-    }
-    return cell;
+
+- (IBAction)post:(id)sender {
+    UINavigationController* navigation = self.parentViewController;
+    [navigation popViewControllerAnimated:NO];
+    UITabBarController* tabbar = navigation.parentViewController;
+    tabbar.selectedIndex = 0;
+    
 }
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
-}
-
-
-- (IBAction)cancelPost:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
-}
-
 @end

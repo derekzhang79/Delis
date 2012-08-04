@@ -8,11 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PostViewController : UITableViewController {
-    IBOutlet UITableView* tableview;
-}
+@interface PostViewController : UIViewController {
 
-@property (nonatomic, strong) UITableView* tableview;
-- (IBAction)cancelPost:(id)sender;
+}
+- (IBAction)post:(id)sender;
 
 @end
