@@ -36,6 +36,7 @@
 		75CC5B3715CB2952003E71FD /* libfacebook_ios_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CC5B2F15CB2952003E71FD /* libfacebook_ios_sdk.a */; };
 		75DCE42C15CCB39700EF89E7 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75DCE42B15CCB39700EF89E7 /* PostViewController.m */; };
 		75DCE43015CCD55200EF89E7 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75DCE42F15CCD55200EF89E7 /* MainTabBarController.m */; };
+		75DCE43515CCED6400EF89E7 /* tabbar_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 75DCE43415CCED6400EF89E7 /* tabbar_background.png */; };
 		75F683C415B6F1C4000DD37C /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F683BF15B6F1C4000DD37C /* location.png */; };
 		75F683C515B6F1C4000DD37C /* coffee.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F683C015B6F1C4000DD37C /* coffee.png */; };
 		75F683C615B6F1C4000DD37C /* restorant.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F683C115B6F1C4000DD37C /* restorant.png */; };
@@ -82,8 +83,8 @@
 		751BC59A15BE75C50080BBD6 /* PictureCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureCellView.m; sourceTree = "<group>"; };
 		751BC59F15BEA6D90080BBD6 /* ReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
 		751BC5A015BEA6D90080BBD6 /* ReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewViewController.m; sourceTree = "<group>"; };
-		756E56A615ADD11E0009D04C /* sample_food.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample_food.jpg; sourceTree = "<group>"; };
-		756E56A915ADD2EE0009D04C /* sample_people.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample_people.jpg; sourceTree = "<group>"; };
+		756E56A615ADD11E0009D04C /* sample_food.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sample_food.jpg; path = ../sample_food.jpg; sourceTree = "<group>"; };
+		756E56A915ADD2EE0009D04C /* sample_people.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sample_people.jpg; path = ../sample_people.jpg; sourceTree = "<group>"; };
 		756E56AB15ADD7770009D04C /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		756E56AC15ADD7770009D04C /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		75B0307315AF024400BABE2D /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -113,12 +114,13 @@
 		75DCE42B15CCB39700EF89E7 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
 		75DCE42E15CCD55200EF89E7 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
 		75DCE42F15CCD55200EF89E7 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
-		75F683BF15B6F1C4000DD37C /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
-		75F683C015B6F1C4000DD37C /* coffee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coffee.png; sourceTree = "<group>"; };
-		75F683C115B6F1C4000DD37C /* restorant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restorant.png; sourceTree = "<group>"; };
-		75F683C215B6F1C4000DD37C /* bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar.png; sourceTree = "<group>"; };
-		75F683C315B6F1C4000DD37C /* bread.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bread.png; sourceTree = "<group>"; };
-		75FD885215B6F5D70034509B /* add_friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_friends.png; sourceTree = "<group>"; };
+		75DCE43415CCED6400EF89E7 /* tabbar_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_background.png; sourceTree = "<group>"; };
+		75F683BF15B6F1C4000DD37C /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = location.png; path = ../location.png; sourceTree = "<group>"; };
+		75F683C015B6F1C4000DD37C /* coffee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coffee.png; path = ../coffee.png; sourceTree = "<group>"; };
+		75F683C115B6F1C4000DD37C /* restorant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = restorant.png; path = ../restorant.png; sourceTree = "<group>"; };
+		75F683C215B6F1C4000DD37C /* bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bar.png; path = ../bar.png; sourceTree = "<group>"; };
+		75F683C315B6F1C4000DD37C /* bread.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bread.png; path = ../bread.png; sourceTree = "<group>"; };
+		75FD885215B6F5D70034509B /* add_friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add_friends.png; path = ../add_friends.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,15 +152,8 @@
 		7515BDFB15AC7BD800F448FC = {
 			isa = PBXGroup;
 			children = (
+				75DCE43115CCE87200EF89E7 /* images */,
 				75CC5B2615CB2952003E71FD /* facebook-ios-sdk */,
-				756E56A915ADD2EE0009D04C /* sample_people.jpg */,
-				756E56A615ADD11E0009D04C /* sample_food.jpg */,
-				75FD885215B6F5D70034509B /* add_friends.png */,
-				75F683BF15B6F1C4000DD37C /* location.png */,
-				75F683C015B6F1C4000DD37C /* coffee.png */,
-				75F683C115B6F1C4000DD37C /* restorant.png */,
-				75F683C215B6F1C4000DD37C /* bar.png */,
-				75F683C315B6F1C4000DD37C /* bread.png */,
 				7515BE4615AC7D5300F448FC /* MapKit.framework */,
 				7515BE1015AC7BD800F448FC /* Delis */,
 				7515BE3115AC7BD800F448FC /* DelisTests */,
@@ -273,6 +268,23 @@
 			path = "facebook-ios-sdk";
 			sourceTree = "<group>";
 		};
+		75DCE43115CCE87200EF89E7 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				75DCE43415CCED6400EF89E7 /* tabbar_background.png */,
+				756E56A915ADD2EE0009D04C /* sample_people.jpg */,
+				756E56A615ADD11E0009D04C /* sample_food.jpg */,
+				75FD885215B6F5D70034509B /* add_friends.png */,
+				75F683BF15B6F1C4000DD37C /* location.png */,
+				75F683C015B6F1C4000DD37C /* coffee.png */,
+				75F683C115B6F1C4000DD37C /* restorant.png */,
+				75F683C215B6F1C4000DD37C /* bar.png */,
+				75F683C315B6F1C4000DD37C /* bread.png */,
+			);
+			name = images;
+			path = "facebook-ios-sdk";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -356,6 +368,7 @@
 				75F683C815B6F1C4000DD37C /* bread.png in Resources */,
 				75FD885315B6F5D70034509B /* add_friends.png in Resources */,
 				75CC5B3615CB2952003E71FD /* FBDialog.bundle in Resources */,
+				75DCE43515CCED6400EF89E7 /* tabbar_background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

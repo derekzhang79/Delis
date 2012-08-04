@@ -10,4 +10,9 @@
 
 @implementation MainTabBarController
 
+-(void)viewDidLoad {
+    [super viewDidLoad];
+    [self.tabBar setBackgroundImage:[UIImage imageNamed:@"tabbar_background"]];
+}
+
 @end
