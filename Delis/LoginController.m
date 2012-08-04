@@ -7,25 +7,37 @@
 //
 
 #import "LoginController.h"
+#import "TitleViewController.h"
 
 @implementation LoginController
 @synthesize facebook;
+@synthesize window = _window;
 
--(void)initializeWithDeligate:(id<FBSessionDelegate>)deligate {
-    facebook = [[Facebook alloc] initWithAppId:@"494841757196846" andDelegate:deligate];
+-(BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    facebook = [[Facebook alloc] initWithAppId:@"494841757196846" andDelegate:self];
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults objectForKey:@"FBAccessTokenKey"] && [defaults objectForKey:@"FBExpirationDateKey"]) {
         facebook.accessToken = [defaults objectForKey:@"FBAccessTokenKey"];
         facebook.expirationDate = [defaults objectForKey:@"FBExpirationDateKey"];
     }
+}
+
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [facebook handleOpenURL:url];
+}
+
+-(BOOL)handleOpenURL:(NSURL*)url {
+    return [facebook handleOpenURL:url];
+}
+
+-(void)login {
     if (![facebook isSessionValid]) {
         [facebook authorize:nil];
     }
 }
 
-
--(BOOL)handleOpenURL:(NSURL*)url {
-    return [facebook handleOpenURL:url];
+-(void)logout {
+    [facebook logout];
 }
 
 -(void)fbDidLogin {
@@ -33,6 +45,19 @@
     [defaults setObject:[facebook accessToken] forKey:@"FBAccessTokenKey"];
     [defaults setObject:[facebook expirationDate] forKey:@"FBExpirationDateKey"];
     [defaults synchronize];
+}
+
+-(void)fbDidLogout {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"FBAccessTokenKey"]) {
+        [defaults removeObjectForKey:@"FBAccessTokenKey"];
+        [defaults removeObjectForKey:@"FBExpirationDateKey"];
+        [defaults synchronize];
+    }
+}
+
+-(BOOL)isSessionValid {
+    return [facebook isSessionValid];
 }
 
 @end

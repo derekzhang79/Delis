@@ -9,21 +9,22 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "PictureCellView.h"
+#import "LocationView.h"
 
 @interface FeedViewController : UITableViewController <MKMapViewDelegate> {
     IBOutlet UITableView* feed_tableview;
-    UITableViewCell* map_cell;
-    MKMapView* map_view;
-    UITableViewCell* menu_cell;
+    IBOutlet MKMapView* map_view;
+    IBOutlet UIScrollView* menu_view;
     NSMutableArray* picture_array;
 }
 
 @property (nonatomic, strong) MKMapView* map_view;
 @property (nonatomic, strong) UITableView* feed_tableview;
-@property (nonatomic, strong) UITableViewCell* map_cell;
-@property (nonatomic, strong) UITableViewCell* menu_cell;
+@property (nonatomic, strong) UIScrollView* menu_view;
 @property (nonatomic, strong) NSMutableArray* picture_array;
 
 -(void)addMenuWithTitle:(NSString*)name width:(CGFloat)width;
+-(void)addLocationToMap:(LocationView*)location;
+-(void)moveMapWithRegion:(MKCoordinateRegion)region;
 
 @end

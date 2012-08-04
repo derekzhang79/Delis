@@ -9,12 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "FBConnect.h"
 
-@interface LoginController : NSObject {
+@interface LoginController : NSObject <UIApplicationDelegate, FBSessionDelegate> {
     Facebook* facebook;
 }
 
-@property (nonatomic, strong) Facebook* facebook;
--(void) initializeWithDeligate:(id<FBSessionDelegate>)deligate;
+-(void) login;
+-(void) logout;
 -(BOOL) handleURL:(NSURL*)url;
--(void) fbDidLogin;
+-(BOOL) isSessionValid;
+
+@property (nonatomic, strong) Facebook* facebook;
+@property (strong, nonatomic) UIWindow *window;
+
 @end

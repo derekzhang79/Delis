@@ -11,20 +11,22 @@
 
 @implementation FeedViewController
 @synthesize feed_tableview;
-@synthesize map_cell;
-@synthesize menu_cell;
 @synthesize picture_array;
 @synthesize map_view;
+@synthesize menu_view;
 
 -(void)viewDidLoad {
     [super viewDidLoad];
-    map_cell = [feed_tableview dequeueReusableCellWithIdentifier:@"MapCell"];
-    UIView* sub_view = [map_cell.subviews objectAtIndex:0];
-    map_view = [sub_view.subviews objectAtIndex:0];
+
     MKCoordinateRegion location = { { 37.503551 , 127.02531}, {0.0004, 0.0004} };
-    [map_view setRegion:location animated:YES];
+    [self moveMapWithRegion:location];
     
-    menu_cell = [feed_tableview dequeueReusableCellWithIdentifier:@"MenuCell"];
+    LocationView* location_view = [[LocationView alloc] init];
+    location_view.title = @"test";
+    location_view.subtitle = @"sub";
+    location_view.coordinate = location.center;
+    [self addLocationToMap:location_view];
+    
     picture_array = [NSMutableArray arrayWithCapacity:10];
     PictureCellView* picture1 = [feed_tableview dequeueReusableCellWithIdentifier:@"PictureCell"];
     [picture1.user_name setText:@"leadbrain"];
@@ -53,47 +55,39 @@
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell* cell;
-    if (indexPath.row == 0) {
-        cell = map_cell;
-    } else if (indexPath.row == 1) {
-        cell = menu_cell;
-    } else {
-        cell = [picture_array objectAtIndex:indexPath.row - 2];
-    }
-    
+    UITableViewCell* cell = [picture_array objectAtIndex:indexPath.row];    
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [picture_array count] + 2;
+    return [picture_array count];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-        return 150;
-    } else if (indexPath.row == 1) {
-        return 40;
-    } else {
-        return 350;
-    }
+    return 350;
 }
 
 -(void)addMenuWithTitle:(NSString*)name width:(CGFloat)width {
-    UIView* view = [menu_cell.subviews objectAtIndex:0];
-    UIScrollView* root = [view.subviews objectAtIndex:0];
-    int subview_count = [root.subviews count];
+    int subview_count = [menu_view.subviews count];
     CGFloat start_point = 0;
     if (subview_count > 0) {
-        UIButton* last_view = [root.subviews objectAtIndex:subview_count -1];
+        UIButton* last_view = [menu_view.subviews objectAtIndex:subview_count -1];
         start_point = last_view.frame.origin.x + last_view.frame.size.width + 10;
     }
     
     UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     button.frame = CGRectMake(start_point, 0, width, 40);
     [button setTitle:name forState:UIControlStateNormal];
-    [root addSubview:button];
-    root.contentSize = CGSizeMake(start_point + width, 40);
+    [menu_view addSubview:button];
+    menu_view.contentSize = CGSizeMake(start_point + width, 40);
+}
+
+-(void)addLocationToMap:(LocationView *)location {
+    [map_view addAnnotation:location];
+}
+
+-(void)moveMapWithRegion:(MKCoordinateRegion)region {
+    [map_view setRegion:region animated:YES];
 }
 
 @end

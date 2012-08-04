@@ -1,14 +1,14 @@
 //
-//  CameraView.h
+//  PostViewController.h
 //  Delis
 //
-//  Created by 김 영선 on 12. 7. 12..
+//  Created by Young sun Kim on 12. 8. 4..
 //  Copyright (c) 2012년 LBS. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface CameraViewController : UITableViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
+@interface PostViewController : UITableViewController {
     IBOutlet UITableView* tableview;
 }
 

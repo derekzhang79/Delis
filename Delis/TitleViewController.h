@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+//#import "FBConnect.h"
 #import "LoginController.h"
 
-@interface TitleViewController : UIViewController <UIApplicationDelegate, FBSessionDelegate> {
+@interface TitleViewController : UIViewController {
     LoginController* login;
 }
+
 @property (nonatomic, strong) LoginController* login;
+
 -(IBAction)loginWithFacebook:(id)sender;
 
 @end

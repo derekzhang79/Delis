@@ -9,23 +9,30 @@
 #import "TitleViewController.h"
 
 @implementation TitleViewController
-@synthesize login;
 
 -(void)viewDidLoad {
-    login = [[LoginController alloc] init];    
+    [super viewDidLoad];
+    login = (LoginController*)[[UIApplication sharedApplication] delegate];
+
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    if ([login isSessionValid]) {
+        [self performSegueWithIdentifier:@"to_feedview" sender:self];
+    }
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    if ([login isSessionValid]) {
+        [self performSegueWithIdentifier:@"to_feedview" sender:self];
+    }
 }
 
 -(IBAction)loginWithFacebook:(id)sender {
-    [login initializeWithDeligate:self];
-}
-
--(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [login handleURL:url];
-}
-
--(void)fbDidLogin {
-    [login fbDidLogin];
-    [self performSegueWithIdentifier:@"to_feedview" sender:self];
+    [login login];
+    if ([login isSessionValid]) {
+        [self performSegueWithIdentifier:@"to_feedview" sender:self];
+    }
 }
 
 @end

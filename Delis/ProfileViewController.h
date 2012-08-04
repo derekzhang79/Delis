@@ -12,6 +12,8 @@
     IBOutlet UIWebView* webview;
 }
 
+- (IBAction)logout:(id)sender;
+- (IBAction)test:(id)sender;
 @property (nonatomic, retain) UIWebView* webview;
 
 @end

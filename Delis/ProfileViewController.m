@@ -7,6 +7,7 @@
 //
 
 #import "ProfileViewController.h"
+#import "LoginController.h"
 
 @implementation ProfileViewController
 @synthesize webview;
@@ -18,4 +19,12 @@
     [webview loadRequest:request];
 }
 
+- (IBAction)logout:(id)sender {
+    [(LoginController*)[[UIApplication sharedApplication] delegate] logout];
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction)test:(id)sender {
+    [self performSegueWithIdentifier:@"test" sender:self];
+}
 @end
