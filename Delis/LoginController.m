@@ -11,6 +11,7 @@
 
 @implementation LoginController
 @synthesize facebook;
+@synthesize commucation;
 @synthesize window = _window;
 
 -(BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -20,6 +21,7 @@
         facebook.accessToken = [defaults objectForKey:@"FBAccessTokenKey"];
         facebook.expirationDate = [defaults objectForKey:@"FBExpirationDateKey"];
     }
+    commucation = [[CommunicationManager alloc] init];
 }
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
@@ -58,6 +60,18 @@
 
 -(BOOL)isSessionValid {
     return [facebook isSessionValid];
+}
+
+
+-(void)request:(FBRequest *)request didReceiveResponse:(NSURLResponse *)response {
+    if (request_target) {
+        [request_target performSelector:request_selector withObject:response];
+    }
+}
+
+-(void)setRequestCallbackWithTarget:(id)target selector:(SEL)selector {
+    request_target = target;
+    request_selector = selector;
 }
 
 @end

@@ -7,13 +7,15 @@
 //
 
 #import "TitleViewController.h"
+#import "CommunicationManager.h"
 
 @implementation TitleViewController
 
 -(void)viewDidLoad {
     [super viewDidLoad];
     login = (LoginController*)[[UIApplication sharedApplication] delegate];
-
+//    communication = login.commucation;
+//    [communication test];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -24,6 +26,8 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     if ([login isSessionValid]) {
+//        [indicator startAnimating];
+//        [communication setFeedLoadCallbackWithTarget:self selector:@selector(toFeedView)];
         [self performSegueWithIdentifier:@"to_feedview" sender:self];
     }
 }
@@ -34,5 +38,11 @@
         [self performSegueWithIdentifier:@"to_feedview" sender:self];
     }
 }
+
+-(void)toFeedView {
+//    [indicator stopAnimating];
+    [self performSegueWithIdentifier:@"to_feedview" sender:self];
+}
+
 
 @end

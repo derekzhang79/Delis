@@ -1,4 +1,4 @@
-//
+ //
 //  FeedViewController.m
 //  Delis
 //
@@ -8,13 +8,15 @@
 
 #import "FeedViewController.h"
 #import "PictureCellView.h"
+#import "CommunicationManager.h"
+#import "LoginController.h"
 
 @implementation FeedViewController
-@synthesize feed_tableview;
+//@synthesize feed_tableview;
 @synthesize picture_array;
 @synthesize map_view;
 @synthesize menu_view;
-
+@synthesize picture_cell;
 -(void)viewDidLoad {
     [super viewDidLoad];
 
@@ -27,23 +29,12 @@
     location_view.coordinate = location.center;
     [self addLocationToMap:location_view];
     
-    picture_array = [NSMutableArray arrayWithCapacity:10];
-    PictureCellView* picture1 = [feed_tableview dequeueReusableCellWithIdentifier:@"PictureCell"];
-    [picture1.user_name setText:@"leadbrain"];
-    [picture1.date setText:@"2012 07 24"];
-    [picture1.content_text setText:@"test1 test1"];
-    [picture1.location_name setText:@"TestLocation"];
-    [picture1.location_description setText:@"description"];
-
-    PictureCellView* picture2 = [feed_tableview dequeueReusableCellWithIdentifier:@"PictureCell"];
-    [picture2.user_name setText:@"leadbrain2"];
-    [picture2.date setText:@"2012 07 23"];
-    [picture2.content_text setText:@"test2 test2"];
-    [picture2.location_name setText:@"TestLocation2"];
-    [picture2.location_description setText:@"description2"];
-
-    [picture_array addObject:picture1];
-    [picture_array addObject:picture2];
+    picture_cell = [self.tableView dequeueReusableCellWithIdentifier:@"PictureCell"];
+    
+    LoginController* login = (LoginController*)[[UIApplication sharedApplication] delegate];
+    CommunicationManager* communication = login.commucation;
+    [communication setFeedLoadCallbackWithTarget:self selector:@selector(reloadTable)];
+    [communication test];
 
     [self addMenuWithTitle:@"location" width:80];
     [self addMenuWithTitle:@"food" width:50];
@@ -55,7 +46,17 @@
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell* cell = [picture_array objectAtIndex:indexPath.row];    
+    PictureCellData* data = [picture_array objectAtIndex:indexPath.row];
+    PictureCellView* cell = [self.tableView dequeueReusableCellWithIdentifier:@"PictureCell"];
+    [cell.profile_image setImage:data.profile_image];
+    [cell.user_name setText:data.user_name];
+    [cell.date setText:data.date];
+    [cell.main_picture setImage:data.main_picture];
+    [cell.content_text setText:data.content_text];
+    [cell.location setImage:data.location];
+    [cell.location_name setText:data.location_name];
+    [cell.location_description setText:data.location_description];
+    [cell.star setImage:data.star];
     return cell;
 }
 
@@ -88,6 +89,25 @@
 
 -(void)moveMapWithRegion:(MKCoordinateRegion)region {
     [map_view setRegion:region animated:YES];
+}
+
+-(void)addPicture:(PictureCellData *)picture {
+    if (picture_array == nil) {
+        picture_array = [NSMutableArray arrayWithCapacity:10];
+    }
+    LocationView* location_view = [[LocationView alloc] init];
+    location_view.title = picture.location_name;
+    location_view.subtitle = picture.location_description;
+    location_view.coordinate = picture.gps;
+    [self addLocationToMap:location_view];
+    [picture_array addObject:picture];
+}
+
+-(void)reloadTable {
+    [self.tableView reloadData];
+    MKCoordinateRegion region = {{0,0}, {0.005, 0.005}};
+    region.center = [[picture_array objectAtIndex:0] gps];
+    [self moveMapWithRegion:region];
 }
 
 @end

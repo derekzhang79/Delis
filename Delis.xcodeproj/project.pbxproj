@@ -37,6 +37,8 @@
 		75DCE42C15CCB39700EF89E7 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75DCE42B15CCB39700EF89E7 /* PostViewController.m */; };
 		75DCE43015CCD55200EF89E7 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75DCE42F15CCD55200EF89E7 /* MainTabBarController.m */; };
 		75DCE43515CCED6400EF89E7 /* tabbar_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 75DCE43415CCED6400EF89E7 /* tabbar_background.png */; };
+		75DCE43815CCEFC300EF89E7 /* CommunicationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 75DCE43715CCEFC300EF89E7 /* CommunicationManager.m */; };
+		75DCE44B15D1500700EF89E7 /* PictureCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = 75DCE44A15D1500600EF89E7 /* PictureCellData.m */; };
 		75F683C415B6F1C4000DD37C /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F683BF15B6F1C4000DD37C /* location.png */; };
 		75F683C515B6F1C4000DD37C /* coffee.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F683C015B6F1C4000DD37C /* coffee.png */; };
 		75F683C615B6F1C4000DD37C /* restorant.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F683C115B6F1C4000DD37C /* restorant.png */; };
@@ -115,6 +117,10 @@
 		75DCE42E15CCD55200EF89E7 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
 		75DCE42F15CCD55200EF89E7 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
 		75DCE43415CCED6400EF89E7 /* tabbar_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_background.png; sourceTree = "<group>"; };
+		75DCE43615CCEFC200EF89E7 /* CommunicationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunicationManager.h; sourceTree = "<group>"; };
+		75DCE43715CCEFC300EF89E7 /* CommunicationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunicationManager.m; sourceTree = "<group>"; };
+		75DCE44915D1500600EF89E7 /* PictureCellData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureCellData.h; sourceTree = "<group>"; };
+		75DCE44A15D1500600EF89E7 /* PictureCellData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureCellData.m; sourceTree = "<group>"; };
 		75F683BF15B6F1C4000DD37C /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = location.png; path = ../location.png; sourceTree = "<group>"; };
 		75F683C015B6F1C4000DD37C /* coffee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coffee.png; path = ../coffee.png; sourceTree = "<group>"; };
 		75F683C115B6F1C4000DD37C /* restorant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = restorant.png; path = ../restorant.png; sourceTree = "<group>"; };
@@ -185,6 +191,10 @@
 		7515BE1015AC7BD800F448FC /* Delis */ = {
 			isa = PBXGroup;
 			children = (
+				75DCE44915D1500600EF89E7 /* PictureCellData.h */,
+				75DCE44A15D1500600EF89E7 /* PictureCellData.m */,
+				75DCE43615CCEFC200EF89E7 /* CommunicationManager.h */,
+				75DCE43715CCEFC300EF89E7 /* CommunicationManager.m */,
 				75DCE42E15CCD55200EF89E7 /* MainTabBarController.h */,
 				75DCE42F15CCD55200EF89E7 /* MainTabBarController.m */,
 				75DCE42A15CCB39700EF89E7 /* PostViewController.h */,
@@ -416,6 +426,8 @@
 				75CC5AFE15C730B4003E71FD /* TitleViewController.m in Sources */,
 				75DCE42C15CCB39700EF89E7 /* PostViewController.m in Sources */,
 				75DCE43015CCD55200EF89E7 /* MainTabBarController.m in Sources */,
+				75DCE43815CCEFC300EF89E7 /* CommunicationManager.m in Sources */,
+				75DCE44B15D1500700EF89E7 /* PictureCellData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
