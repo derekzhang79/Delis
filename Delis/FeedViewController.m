@@ -69,13 +69,34 @@
 }
 
 
+-(void) buttonPushed:(id)sender{
+    UIButton *button = (UIButton *)sender;
+    switch (button.tag%3) {
+        case 0: // if like button is clicked.
+            NSLog(@"like");
+            break;
+            
+        case 1: // if comment button is clicked.
+            NSLog(@"comment");
+            break;
+            
+        case 2: // if other button is clicked.
+            NSLog(@"other");
+            break;
+    }
+}
+
+
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    // The number means touch listeners count.
+    const int TOUCH_LISTENER = 3;
+    
     PictureCellData* data = [login.pictures objectAtIndex:indexPath.row];
 //    UITableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"PictureCell"];
 //    if (cell == nil) {
        UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PictureCell"];
 //    }
-    
+
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 
     UILabel* user_name = [[UILabel alloc] init];
@@ -95,6 +116,7 @@
     UIImage* background_image = [UIImage imageNamed:@"content_back"];
     background_image = [background_image resizableImageWithCapInsets:UIEdgeInsetsMake(70, 0, 10, 0)];
     UIImageView* background = [[UIImageView alloc] initWithImage:background_image];
+    [background setUserInteractionEnabled:YES];
     background.frame = CGRectMake(10, 30, background.frame.size.width, background.frame.size.height);
     
     UIImageView* main_picture = [[UIImageView alloc] initWithImage:data.main_picture];
@@ -112,7 +134,10 @@
     
     background_height += 10 + content_text.frame.size.height;
     
+    // like
     UIButton* like_button = [UIButton buttonWithType:UIButtonTypeCustom];
+    like_button.tag = indexPath.row*TOUCH_LISTENER;
+    [like_button addTarget:self action:@selector(buttonPushed:) forControlEvents:UIControlEventTouchUpInside];
     UIImage* like_image = [UIImage imageNamed:@"feed_like"];
     [like_button setImage:like_image forState:UIControlStateNormal];
     [like_button setImage:[UIImage imageNamed:@"feed_like_down"] forState:UIControlStateHighlighted];
@@ -120,13 +145,19 @@
     like_button.enabled = YES;
     [background addSubview:like_button];
     
+    // comment
     UIButton* comment_button = [UIButton buttonWithType:UIButtonTypeCustom];
+    comment_button.tag = indexPath.row*TOUCH_LISTENER+1;
+    [comment_button addTarget:self action:@selector(buttonPushed:) forControlEvents:UIControlEventTouchUpInside];
     UIImage* comment_image = [UIImage imageNamed:@"feed_comment"];
     [comment_button setImage:comment_image forState:UIControlStateNormal];
     comment_button.frame = CGRectMake(10 + 10 + like_button.frame.size.width, background_height + 10, comment_image.size.width, comment_image.size.height);
     [background addSubview:comment_button];
     
+    // other_button
     UIButton* other_button = [UIButton buttonWithType:UIButtonTypeCustom];
+    other_button.tag = indexPath.row*TOUCH_LISTENER+2;
+    [other_button addTarget:self action:@selector(buttonPushed:) forControlEvents:UIControlEventTouchUpInside];
     UIImage* other_image = [UIImage imageNamed:@"other_button"];
     [other_button setImage:other_image forState:UIControlStateNormal];
     other_button.frame = CGRectMake(10 + 10 + 90 + like_button.frame.size.width + comment_button.frame.size.width, background_height + 10, other_image.size.width, other_image.size.height);
@@ -137,8 +168,9 @@
     background_height += 10;
     background.frame = CGRectMake(background.frame.origin.x, background.frame.origin.y, background.frame.size.width, background_height);
     
-    [cell addSubview:background];
+    [cell.contentView addSubview:background];
     
+    // location information
     UIImageView* shop_bar = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shop_background"]];
     shop_bar.frame = CGRectMake(10, 30 + background.frame.size.height, shop_bar.frame.size.width, shop_bar.frame.size.height);
     shop_bar.center = CGPointMake(cell.center.x, shop_bar.center.y);
@@ -155,7 +187,7 @@
     [location_description setBackgroundColor:[UIColor colorWithWhite:0 alpha:0]];
     [shop_bar addSubview:location_description];
 
-    [cell addSubview:shop_bar];
+    [cell.contentView addSubview:shop_bar];
     
     return cell;
 }
