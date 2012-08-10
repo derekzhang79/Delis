@@ -139,7 +139,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="5cJ-BL-2EA">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="141"/>
+                                    <rect key="frame" x="0.0" y="0.5" width="320" height="140"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 </mapView>
                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="menu_background.png" id="AiN-XD-beb">
@@ -172,6 +172,7 @@
                         <outlet property="menu_view" destination="Yab-Vd-nTw" id="M4W-3R-Wjk"/>
                         <segue destination="YbQ-Qj-5Ki" kind="modal" identifier="to_waiting" modalTransitionStyle="crossDissolve" id="YIZ-NY-3w3"/>
                         <segue destination="ygc-WD-Enu" kind="push" identifier="to_comment" id="20f-ko-8ZN"/>
+                        <segue destination="fpH-XG-stD" kind="push" identifier="to_shop" id="ohQ-X4-0Gd"/>
                     </connections>
                 </tableViewController>
                 <tapGestureRecognizer id="bzm-Dp-3YJ"/>
@@ -339,7 +340,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="XDy-1z-auX">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="141"/>
+                                    <rect key="frame" x="0.0" y="0.5" width="320" height="140"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 </mapView>
                             </subviews>
@@ -467,28 +468,19 @@
             </objects>
             <point key="canvasLocation" x="1080" y="400"/>
         </scene>
-        <!--View Controller-->
+        <!--Shop View Controller-->
         <scene sceneID="DHS-Cp-rsZ">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="98E-Bt-B3U" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="fpH-XG-stD" sceneMemberID="viewController">
-                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" id="3Mo-wZ-1c0">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                <viewController id="fpH-XG-stD" customClass="ShopViewController" sceneMemberID="viewController">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceHorizontal="YES" id="3Mo-wZ-1c0">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" id="8ph-By-q9O">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="67b-Pz-HHW">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="141"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    </mapView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
                     </scrollView>
+                    <navigationItem key="navigationItem" id="aqV-QL-Zmo"/>
+                    <connections>
+                        <outlet property="scroll_view" destination="3Mo-wZ-1c0" id="c8j-WY-n0d"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1555" y="124"/>
@@ -776,6 +768,12 @@
         </class>
         <class className="ReviewViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ReviewViewController.h"/>
+        </class>
+        <class className="ShopViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShopViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="scroll_view" candidateClass="UIScrollView"/>
+            </relationships>
         </class>
         <class className="TitleViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TitleViewController.h"/>

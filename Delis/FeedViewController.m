@@ -64,7 +64,7 @@
 
 -(NSIndexPath*)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     login.selected_row = indexPath.row;
-    [self performSegueWithIdentifier:@"to_comment" sender:self];
+    [self performSegueWithIdentifier:@"to_shop" sender:self];
     return indexPath;
 }
 

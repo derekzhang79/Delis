@@ -6,8 +6,10 @@
 //  Copyright (c) 2012년 LBS. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface ShopViewController : NSObject
+@interface ShopViewController : UIViewController {
+    IBOutlet UIScrollView* scroll_view;
+}
 
 @end
