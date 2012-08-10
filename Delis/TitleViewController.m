@@ -14,35 +14,14 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     login = (LoginController*)[[UIApplication sharedApplication] delegate];
-//    communication = login.commucation;
-//    [communication test];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     if ([login isSessionValid]) {
         [self performSegueWithIdentifier:@"to_feedview" sender:self];
+    } else {
+        [self performSegueWithIdentifier:@"to_login" sender:self];
     }
 }
-
--(void)viewWillAppear:(BOOL)animated {
-    if ([login isSessionValid]) {
-//        [indicator startAnimating];
-//        [communication setFeedLoadCallbackWithTarget:self selector:@selector(toFeedView)];
-        [self performSegueWithIdentifier:@"to_feedview" sender:self];
-    }
-}
-
--(IBAction)loginWithFacebook:(id)sender {
-    [login login];
-    if ([login isSessionValid]) {
-        [self performSegueWithIdentifier:@"to_feedview" sender:self];
-    }
-}
-
--(void)toFeedView {
-//    [indicator stopAnimating];
-    [self performSegueWithIdentifier:@"to_feedview" sender:self];
-}
-
 
 @end

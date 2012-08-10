@@ -12,15 +12,10 @@
 
 @interface TitleViewController : UIViewController {
     LoginController* login;
-//    IBOutlet UIActivityIndicatorView* indicator;
     CommunicationManager* communication;
 }
 
-@property (nonatomic, strong) LoginController* login;
-@property (nonatomic, strong) UIActivityIndicatorView* indicator;
-@property (nonatomic, strong) CommunicationManager* communication;
 
--(IBAction)loginWithFacebook:(id)sender;
 -(void)toFeedView;
 
 @end

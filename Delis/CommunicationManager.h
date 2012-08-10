@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CommunicationManager : NSObject {
+@interface CommunicationManager : NSObject <NSURLConnectionDataDelegate> {
     NSMutableArray* result_array;
     id feed_target;
     SEL feed_selector;

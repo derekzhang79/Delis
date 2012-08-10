@@ -20,6 +20,7 @@
     NSString* location_description;
     CLLocationCoordinate2D gps;
     UIImage* star;
+    CGFloat cell_height;
 }
 
 @property (nonatomic, strong) UIImage* profile_image;
@@ -32,5 +33,6 @@
 @property (nonatomic, strong) NSString* location_description;
 @property (nonatomic, strong) UIImage* star;
 @property (nonatomic, assign) CLLocationCoordinate2D gps;
+@property (nonatomic, assign) CGFloat cell_height;
 
 @end

@@ -19,5 +19,6 @@
 @synthesize location_description;
 @synthesize star;
 @synthesize gps;
+@synthesize cell_height;
 
 @end

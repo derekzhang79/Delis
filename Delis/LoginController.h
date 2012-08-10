@@ -13,6 +13,8 @@
 @interface LoginController : NSObject <UIApplicationDelegate, FBSessionDelegate, FBRequestDelegate> {
     Facebook* facebook;
     CommunicationManager* communication;
+    NSMutableArray* pictures;
+    NSInteger selected_row;
     id request_target;
     SEL request_selector;
 }
@@ -26,5 +28,7 @@
 @property (nonatomic, strong) Facebook* facebook;
 @property (nonatomic, strong) CommunicationManager* commucation;
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) NSMutableArray* pictures;
+@property (nonatomic, assign) NSInteger selected_row;
 
 @end

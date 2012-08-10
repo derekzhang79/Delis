@@ -12,16 +12,19 @@
 @implementation LoginController
 @synthesize facebook;
 @synthesize commucation;
+@synthesize pictures;
+@synthesize selected_row;
 @synthesize window = _window;
 
 -(BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    facebook = [[Facebook alloc] initWithAppId:@"494841757196846" andDelegate:self];
+    facebook = [[Facebook alloc] initWithAppId:@"351581794921738" andDelegate:self];
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults objectForKey:@"FBAccessTokenKey"] && [defaults objectForKey:@"FBExpirationDateKey"]) {
         facebook.accessToken = [defaults objectForKey:@"FBAccessTokenKey"];
         facebook.expirationDate = [defaults objectForKey:@"FBExpirationDateKey"];
     }
     commucation = [[CommunicationManager alloc] init];
+    pictures = [NSMutableArray arrayWithCapacity:30];
 }
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
