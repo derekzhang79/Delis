@@ -68,6 +68,26 @@
     return indexPath;
 }
 
+- (UIImage*) maskImage:(UIImage *)image withMask:(UIImage *)maskImage {
+    
+    CGImageRef maskRef = maskImage.CGImage;
+    
+    CGImageRef mask = CGImageMaskCreate(CGImageGetWidth(maskRef),
+                                        CGImageGetHeight(maskRef),
+                                        CGImageGetBitsPerComponent(maskRef),
+                                        CGImageGetBitsPerPixel(maskRef),
+                                        CGImageGetBytesPerRow(maskRef),
+                                        CGImageGetDataProvider(maskRef), NULL, false);
+    
+    CGImageRef maskedImageRef = CGImageCreateWithMask([image CGImage], mask);
+    UIImage *maskedImage = [UIImage imageWithCGImage:maskedImageRef];
+    
+    CGImageRelease(mask);
+    CGImageRelease(maskedImageRef);
+    
+    return maskedImage;
+}
+
 
 -(void) buttonPushed:(id)sender{
     UIButton *button = (UIButton *)sender;
@@ -112,6 +132,13 @@
     [date setFont:[UIFont systemFontOfSize:10]];
     [date setBackgroundColor:[UIColor colorWithWhite:0 alpha:0]];
     [cell addSubview:date];
+    
+    UIImage* profile_image = [UIImage imageNamed:@"add_friends_contect"];
+    UIImage* profile_mask = [UIImage imageNamed:@"profile_mask"];
+    UIImageView* profile = [[UIImageView alloc] initWithImage:[self maskImage:profile_image withMask:profile_mask]];
+    profile.frame = CGRectMake(0, 0, profile.image.size.width, profile.image.size.height);
+    [profile setImage:[self maskImage:profile_image withMask:profile_mask]];
+    [cell addSubview:profile];
     
     UIImage* background_image = [UIImage imageNamed:@"content_back"];
     background_image = [background_image resizableImageWithCapInsets:UIEdgeInsetsMake(70, 0, 10, 0)];
@@ -255,6 +282,19 @@
 //    map_view.userLocation.location
     loading = NO;
     [self dismissModalViewControllerAnimated:YES];
+}
+
+-(MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    MKAnnotationView *view = nil;
+    if (annotation != mapView.userLocation) {
+        view = [mapView dequeueReusableAnnotationViewWithIdentifier:@"annotation"];
+        if (!view) {
+            view = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"annotation"];
+            
+            view.image = [UIImage imageNamed:@"check_point"];
+        }
+    }
+    return view;
 }
 
 @end
