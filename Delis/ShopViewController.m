@@ -29,7 +29,7 @@
     [base_view addSubview:background_small];
     content_size += 10 + background_small.frame.size.height;
     
-//    UILabel* location_name = [UILabel alloc] in
+//    UILabel* location_name = [UILabel alloc] initWithFrame:CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
     
     
     

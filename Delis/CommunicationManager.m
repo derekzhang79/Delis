@@ -23,38 +23,48 @@
 -(void)test {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSString* token = [defaults objectForKey:@"FBAccessTokenKey"];
-    NSLog(token);
-//    NSURLConnection* connect = [[NSURLConnection alloc] initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://blazing-river-3051.herokuapp.com/mobile?token=%@&lat=37.499277&lon=127.026169", token]]] delegate:self];
+    NSLog(@"%@",token);
+    NSURLConnection* connect = [[NSURLConnection alloc] initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://blazing-river-3051.herokuapp.com/mobile?token=%@&lat=37.499277&lon=127.026169", token]]] delegate:self];
 
-    LoginController* login = (LoginController*)[[UIApplication sharedApplication] delegate];
-    [login.facebook requestWithGraphPath:@"1030488549/photos?limit=300&fields=from,name,picture,place" andDelegate:login];
-    [login setRequestCallbackWithTarget:self selector:@selector(workWithResult:)];
+//    LoginController* login = (LoginController*)[[UIApplication sharedApplication] delegate];
+//    [login.facebook requestWithGraphPath:@"1030488549/photos?limit=300&fields=from,name,picture,place" andDelegate:login];
+//    [login setRequestCallbackWithTarget:self selector:@selector(workWithResult:)];
 }
 
--(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    Byte* temp = (Byte*)malloc(sizeof(Byte)*2000);
-    [data getBytes:temp length:2000];
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    NSData* data = [NSData dataWithContentsOfURL:response.URL];
     NSError* error = nil;
     NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
     NSLog(@"error %@", [error localizedDescription]);
     LoginController* login = (LoginController*)[[UIApplication sharedApplication] delegate];
+    if (error != nil) {
+        [feed_target performSelector:feed_selector];
+    }
     for (NSDictionary* data in json) {
         PictureCellData* picture = [[PictureCellData alloc] init];
         picture.user_name = [data objectForKey:@"fname"];
         picture.location_name = [data objectForKey:@"pname"];
         picture.main_picture = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[data objectForKey:@"pic_link"]]]];
+        MKCoordinateRegion temp = {{0,0}, {0,0}};
+        temp.center.latitude = [[data objectForKey:@"lat"] doubleValue];
+        temp.center.longitude = [[data objectForKey:@"lon"] doubleValue];
+        picture.gps = temp.center;
+//        picture.date = [data objectForKey:@"date"];
+        
         [login.pictures addObject:picture];
-        NSLog(picture.user_name);
+        NSLog(@"%@",picture.user_name);
     }
     [feed_target performSelector:feed_selector];
 }
 
+
+
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    int a = 0;
+    NSLog(@"connection fail");
 }
 
 -(void) connectionDidFinishLoading:(NSURLConnection *)connection {
-    int a = 0;
+    NSLog(@"connection Finished");
 }
 
 -(void)setFeedLoadCallbackWithTarget:(id)target selector:(SEL)selector {

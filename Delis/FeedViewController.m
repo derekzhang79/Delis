@@ -64,7 +64,7 @@
 
 -(NSIndexPath*)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     login.selected_row = indexPath.row;
-    [self performSegueWithIdentifier:@"to_shop" sender:self];
+    [self performSegueWithIdentifier:@"to_comment" sender:self];
     return indexPath;
 }
 
@@ -107,15 +107,9 @@
 }
 
 
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // The number means touch listeners count.
-    const int TOUCH_LISTENER = 3;
-    
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {    
     PictureCellData* data = [login.pictures objectAtIndex:indexPath.row];
-//    UITableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"PictureCell"];
-//    if (cell == nil) {
-       UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PictureCell"];
-//    }
+    UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PictureCell"];
 
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 
@@ -140,6 +134,19 @@
     [profile setImage:[self maskImage:profile_image withMask:profile_mask]];
     [cell addSubview:profile];
     
+    UIImageView* picture_frame = [self makePictureFrameWithData:data indexPath:indexPath];
+    [cell.contentView addSubview:picture_frame];
+    
+    UIImageView* shop_bar = [self makeShopBarWithData:data indexPath:indexPath];
+    shop_bar.frame = CGRectMake(10, 30 + picture_frame.frame.size.height, shop_bar.frame.size.width, shop_bar.frame.size.height);
+    shop_bar.center = CGPointMake(cell.center.x, shop_bar.center.y);
+    [cell.contentView addSubview:shop_bar];
+    
+    return cell;
+}
+
+-(UIImageView*)makePictureFrameWithData:(PictureCellData*) data indexPath:(NSIndexPath *)indexPath {
+    const int TOUCH_LISTENER = 3;
     UIImage* background_image = [UIImage imageNamed:@"content_back"];
     background_image = [background_image resizableImageWithCapInsets:UIEdgeInsetsMake(70, 0, 10, 0)];
     UIImageView* background = [[UIImageView alloc] initWithImage:background_image];
@@ -194,13 +201,14 @@
     
     background_height += 10;
     background.frame = CGRectMake(background.frame.origin.x, background.frame.origin.y, background.frame.size.width, background_height);
-    
-    [cell.contentView addSubview:background];
-    
-    // location information
+    return background;
+}
+
+-(UIImageView*)makeShopBarWithData:(PictureCellData*)data indexPath:(NSIndexPath*)indexPath {
     UIImageView* shop_bar = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shop_background"]];
-    shop_bar.frame = CGRectMake(10, 30 + background.frame.size.height, shop_bar.frame.size.width, shop_bar.frame.size.height);
-    shop_bar.center = CGPointMake(cell.center.x, shop_bar.center.y);
+    shop_bar.userInteractionEnabled = YES;
+    UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toShop)];
+    [shop_bar addGestureRecognizer:gesture];
     
     UILabel* location_name = [[UILabel alloc] initWithFrame:CGRectMake(70, 10, 300, 12)];
     [location_name setText:data.location_name];
@@ -213,10 +221,20 @@
     [location_description setFont:[UIFont systemFontOfSize:11]];
     [location_description setBackgroundColor:[UIColor colorWithWhite:0 alpha:0]];
     [shop_bar addSubview:location_description];
-
-    [cell.contentView addSubview:shop_bar];
     
-    return cell;
+    UIImageView* star = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"star"]];
+    UIImageView* star_half = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"star_half"]];
+    UIImageView* star_empty = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"star_empty"]];
+    
+    star.frame = CGRectMake(120, 10, star.frame.size.width, star.frame.size.height);
+    [shop_bar addSubview:star];
+    
+    
+    return shop_bar;
+}
+
+-(void)toShop {
+    [self performSegueWithIdentifier:@"to_shop" sender:self];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -277,9 +295,11 @@
     [self setLocations];
     [self.tableView reloadData];
     MKCoordinateRegion region = {{0,0}, {0.005, 0.005}};
-    region.center = [[login.pictures objectAtIndex:0] gps];
-    [self moveMapWithRegion:region];
-//    map_view.userLocation.location
+    if ([login.pictures count] > 0) {
+        region.center = [[login.pictures objectAtIndex:0] gps];
+        [self moveMapWithRegion:region];
+
+    }
     loading = NO;
     [self dismissModalViewControllerAnimated:YES];
 }
