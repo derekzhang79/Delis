@@ -14,9 +14,11 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
-    NSURL* url = [NSURL URLWithString:@"http://localhost:8000/login_test.html"];
-    NSURLRequest* request = [NSURLRequest requestWithURL:url];
-    [webview loadRequest:request];
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:0.6 green:0.2 blue:0.15 alpha:1]];
+    if ([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
+        UIImage *image = [UIImage imageNamed:@"navigation_background"];
+        [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    }
 }
 
 - (IBAction)logout:(id)sender {

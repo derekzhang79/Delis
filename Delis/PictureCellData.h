@@ -21,6 +21,7 @@
     CLLocationCoordinate2D gps;
     UIImage* star;
     CGFloat cell_height;
+    NSInteger f_id;
 }
 
 @property (nonatomic, strong) UIImage* profile_image;
@@ -34,5 +35,6 @@
 @property (nonatomic, strong) UIImage* star;
 @property (nonatomic, assign) CLLocationCoordinate2D gps;
 @property (nonatomic, assign) CGFloat cell_height;
+@property (nonatomic, assign) NSInteger f_id;
 
 @end

@@ -13,6 +13,7 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     [self.tabBar setBackgroundImage:[UIImage imageNamed:@"tabbar_bg1"]];
+    [self.tabBar setBackgroundColor:[UIColor colorWithWhite:1 alpha:1]];
     self.delegate = self;
 }
 

@@ -49,13 +49,35 @@
         temp.center.latitude = [[data objectForKey:@"lat"] doubleValue];
         temp.center.longitude = [[data objectForKey:@"lon"] doubleValue];
         picture.gps = temp.center;
-//        picture.date = [data objectForKey:@"date"];
-        
+        picture.date = [data objectForKey:@"date"];
+        picture.profile_image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", [data objectForKey:@"fid"]]]]];
+//        [login.facebook requestWithGraphPath:[NSString stringWithFormat:@"%d/picture", picture.f_id] andDelegate:login];
+//        [login setRequestCallbackWithTarget:self selector:@selector(getProfileImage:)];
         [login.pictures addObject:picture];
         NSLog(@"%@",picture.user_name);
     }
     [feed_target performSelector:feed_selector];
 }
+
+-(void)getProfileImage:(NSURLResponse*)result {
+//    NSData* data = [NSData dataWithContentsOfURL:result.URL];
+//    UIImage* image = [UIImage imageWithData:]];
+//    LoginController* login = (LoginController*)[[UIApplication sharedApplication] delegate];
+//    BOOL breaked = NO;
+//    for (PictureCellData* data in login.pictures) {
+//        if (data.profile_image != nil) {
+//            data.profile_image = image;
+//            NSLog(@"%@", data.user_name);
+//            breaked = YES;
+//            break;
+//        }
+//    }
+//    if (!breaked) {
+//        [feed_target performSelector:feed_selector];
+//    }
+
+}
+
 
 
 

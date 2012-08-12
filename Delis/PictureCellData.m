@@ -20,5 +20,6 @@
 @synthesize star;
 @synthesize gps;
 @synthesize cell_height;
+@synthesize f_id;
 
 @end

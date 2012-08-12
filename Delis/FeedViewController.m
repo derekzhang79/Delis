@@ -1,4 +1,4 @@
- //
+//
 //  FeedViewController.m
 //  Delis
 //
@@ -20,9 +20,10 @@
 }
 
 -(void)initalization {
+    map_view.delegate = self;
     [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:0.6 green:0.2 blue:0.15 alpha:1]];
     login = (LoginController*)[[UIApplication sharedApplication] delegate];
-
+    
     MKCoordinateRegion location = { { 37.503551 , 127.02531}, {0.0004, 0.0004} };
     [self moveMapWithRegion:location];
     
@@ -38,7 +39,6 @@
     loading = YES;
     
     [self.tableView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"picture_cell_background"]]];
-
     
     [self addMenuWithImage:[UIImage imageNamed:@"menu_location"]];
     [self addMenuWithImage:[UIImage imageNamed:@"menu_coffee"]];
@@ -49,13 +49,12 @@
     [self addMenuWithImage:[UIImage imageNamed:@"menu_wine"]];
     [self addMenuWithImage:[UIImage imageNamed:@"menu_pub"]];
     [self addMenuWithImage:[UIImage imageNamed:@"menu_beer"]];
-
+    
     if ([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
         UIImage *image = [UIImage imageNamed:@"navigation_background"];
         [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
     }
 }
-
 -(void)viewDidAppear:(BOOL)animated {
     if (loading) {
         [self performSegueWithIdentifier:@"to_waiting" sender:self];
@@ -66,6 +65,24 @@
     login.selected_row = indexPath.row;
     [self performSegueWithIdentifier:@"to_comment" sender:self];
     return indexPath;
+}
+// To change the ping image, you should implement this method.
+- (MKAnnotationView *)mapView:(MKMapView *)aMapView viewForAnnotation:(id <MKAnnotation>)annotation {
+	NSLog(@"hello");
+    static NSString *placeMarkIdentifier = @"Delis Point";
+	
+	if ([annotation isKindOfClass:[LocationView class]]) {
+		MKAnnotationView *annotationView = (MKPinAnnotationView *)[map_view dequeueReusableAnnotationViewWithIdentifier:placeMarkIdentifier];
+		if (annotationView == nil) {
+			annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:placeMarkIdentifier];
+			annotationView.image = [UIImage imageNamed:@"check_point.png"];
+			annotationView.canShowCallout = YES;
+		}
+		else
+			annotationView.annotation = annotation;
+		return annotationView;
+	}
+	return nil;
 }
 
 - (UIImage*) maskImage:(UIImage *)image withMask:(UIImage *)maskImage {
@@ -107,12 +124,12 @@
 }
 
 
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {    
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PictureCellData* data = [login.pictures objectAtIndex:indexPath.row];
     UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PictureCell"];
-
+    
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-
+    
     UILabel* user_name = [[UILabel alloc] init];
     user_name.frame = CGRectMake(50, 20, 100, 10);
     [user_name setText:data.user_name];
@@ -127,19 +144,27 @@
     [date setBackgroundColor:[UIColor colorWithWhite:0 alpha:0]];
     [cell addSubview:date];
     
-    UIImage* profile_image = [UIImage imageNamed:@"add_friends_contect"];
-    UIImage* profile_mask = [UIImage imageNamed:@"profile_mask"];
+    UIImage* profile_image;
+    if (data.profile_image == nil) {
+        NSInteger num = indexPath.row % 5 + 1;
+        data.profile_image = [UIImage imageNamed:[NSString stringWithFormat:@"temp%d",num]];
+    }
+     profile_image = data.profile_image;
+//    UIImage* profile_image = [UIImage imageNamed:@"add_friends_facebook"];
+    UIImage* profile_mask = [UIImage imageNamed:@"profile_rect"];
     UIImageView* profile = [[UIImageView alloc] initWithImage:[self maskImage:profile_image withMask:profile_mask]];
-    profile.frame = CGRectMake(0, 0, profile.image.size.width, profile.image.size.height);
+    profile.frame = CGRectMake(7.5, 12, 36, 36);
     [profile setImage:[self maskImage:profile_image withMask:profile_mask]];
     [cell addSubview:profile];
+    UIImageView* profile_circle = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"profile_circle"]];
+    profile_circle.frame = CGRectMake(0, 4.5, profile_circle.frame.size.width, profile_circle.frame.size.height);
+    [cell addSubview:profile_circle];
     
     UIImageView* picture_frame = [self makePictureFrameWithData:data indexPath:indexPath];
     [cell.contentView addSubview:picture_frame];
     
     UIImageView* shop_bar = [self makeShopBarWithData:data indexPath:indexPath];
-    shop_bar.frame = CGRectMake(10, 30 + picture_frame.frame.size.height, shop_bar.frame.size.width, shop_bar.frame.size.height);
-    shop_bar.center = CGPointMake(cell.center.x, shop_bar.center.y);
+    shop_bar.frame = CGRectMake(20, 27 + picture_frame.frame.size.height, shop_bar.frame.size.width, shop_bar.frame.size.height);
     [cell.contentView addSubview:shop_bar];
     
     return cell;
@@ -151,10 +176,10 @@
     background_image = [background_image resizableImageWithCapInsets:UIEdgeInsetsMake(70, 0, 10, 0)];
     UIImageView* background = [[UIImageView alloc] initWithImage:background_image];
     [background setUserInteractionEnabled:YES];
-    background.frame = CGRectMake(10, 30, background.frame.size.width, background.frame.size.height);
+    background.frame = CGRectMake(14.5, 30, background.frame.size.width, background.frame.size.height);
     
     UIImageView* main_picture = [[UIImageView alloc] initWithImage:data.main_picture];
-    main_picture.frame = CGRectMake(10, 10, 280, data.main_picture.size.height / (data.main_picture.size.width / 280));
+    main_picture.frame = CGRectMake(6, 5, 288, data.main_picture.size.height / (data.main_picture.size.width / 288));
     main_picture.center = CGPointMake(main_picture.center.x, main_picture.center.y);
     [background addSubview:main_picture];
     
@@ -210,25 +235,44 @@
     UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toShop)];
     [shop_bar addGestureRecognizer:gesture];
     
-    UILabel* location_name = [[UILabel alloc] initWithFrame:CGRectMake(70, 10, 300, 12)];
+    UILabel* location_name = [[UILabel alloc] initWithFrame:CGRectMake(80, 10, 300, 12)];
     [location_name setText:data.location_name];
     [location_name setFont:[UIFont systemFontOfSize:12]];
     [location_name setBackgroundColor:[UIColor colorWithWhite:0 alpha:0]];
     [shop_bar addSubview:location_name];
     
-    UILabel* location_description = [[UILabel alloc] initWithFrame:CGRectMake(70, 25, 300, 11)];
+    UILabel* location_description = [[UILabel alloc] initWithFrame:CGRectMake(80, 25, 300, 11)];
     [location_description setText:data.location_name];
     [location_description setFont:[UIFont systemFontOfSize:11]];
     [location_description setBackgroundColor:[UIColor colorWithWhite:0 alpha:0]];
     [shop_bar addSubview:location_description];
     
-    UIImageView* star = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"star"]];
+    UIImageView* star1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"star"]];
+    UIImageView* star2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"star"]];
+    UIImageView* star3 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"star"]];
+    UIImageView* star4 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"star"]];
     UIImageView* star_half = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"star_half"]];
-    UIImageView* star_empty = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"star_empty"]];
+
     
-    star.frame = CGRectMake(120, 10, star.frame.size.width, star.frame.size.height);
-    [shop_bar addSubview:star];
+    CGFloat star_start = 200;
+    star1.frame = CGRectMake(star_start, 10, star1.frame.size.width, star1.frame.size.height);
+    [shop_bar addSubview:star1];
+    star_start += star1.frame.size.width;
+    star2.frame = CGRectMake(star_start, 10, star2.frame.size.width, star2.frame.size.height);
+    [shop_bar addSubview:star2];
+    star_start += star2.frame.size.width;
+    star3.frame = CGRectMake(star_start, 10, star3.frame.size.width, star3.frame.size.height);
+    [shop_bar addSubview:star3];
+    star_start += star3.frame.size.width;
+    star4.frame = CGRectMake(star_start, 10, star4.frame.size.width, star4.frame.size.height);
+    [shop_bar addSubview:star4];
+    star_start += star4.frame.size.width;
+    star_half.frame = CGRectMake(star_start, 11, star_half.frame.size.width, star_half.frame.size.height);
+    [shop_bar addSubview:star_half];
     
+    UIImageView* food_image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"menu_restorant"]];
+    food_image.frame = CGRectMake(17, 5, food_image.frame.size.width, food_image.frame.size.height);
+    [shop_bar addSubview:food_image];
     
     return shop_bar;
 }
@@ -258,7 +302,7 @@
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(start_point, 0, 60, 50);
     [button setImage:pic forState:UIControlStateNormal];
-//    [button setBackgroundImage:[UIImage imageNamed:@"menu_background"] forState:UIControlStateNormal];
+    //    [button setBackgroundImage:[UIImage imageNamed:@"menu_background"] forState:UIControlStateNormal];
     [menu_view addSubview:button];
     menu_view.contentSize = CGSizeMake(start_point + 60, 50);
 }
@@ -286,7 +330,7 @@
 
 -(void)setPictureCellHeights {
     for (PictureCellData* data in login.pictures) {
-        data.cell_height = 106.5 + 45.5 + data.main_picture.size.height / (data.main_picture.size.width / 310);
+        data.cell_height = 106.5 + 45.5 + data.main_picture.size.height / (data.main_picture.size.width / 288);
     }
 }
 
@@ -298,23 +342,10 @@
     if ([login.pictures count] > 0) {
         region.center = [[login.pictures objectAtIndex:0] gps];
         [self moveMapWithRegion:region];
-
+        
     }
     loading = NO;
     [self dismissModalViewControllerAnimated:YES];
-}
-
--(MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
-    MKAnnotationView *view = nil;
-    if (annotation != mapView.userLocation) {
-        view = [mapView dequeueReusableAnnotationViewWithIdentifier:@"annotation"];
-        if (!view) {
-            view = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"annotation"];
-            
-            view.image = [UIImage imageNamed:@"check_point"];
-        }
-    }
-    return view;
 }
 
 @end
